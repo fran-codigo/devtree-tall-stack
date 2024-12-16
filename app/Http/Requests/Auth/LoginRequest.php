@@ -32,6 +32,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'email.required' => 'El correo es obligatorio',
+            'email.email' => 'El correo no es válido',
+            'password' => 'La contraseña es obligatoria',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -80,6 +89,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }
