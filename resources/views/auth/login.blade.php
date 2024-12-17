@@ -10,7 +10,6 @@
             <x-input-label for="email" :value="__('Correo Electrónico')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
                 autofocus autocomplete="email" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -20,7 +19,6 @@
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Remember Me -->
@@ -31,6 +29,12 @@
                 <span class="ms-2 text-sm text-gray-200">{{ __('Recuerdame') }}</span>
             </label>
         </div>
+
+        <div class="text-center">
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
 
         <div class="flex items-center justify-between mt-4">
             @if (Route::has('password.request'))
